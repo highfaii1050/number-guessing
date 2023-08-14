@@ -9,11 +9,17 @@ print("Hello," + player_name)
 while 1 <= guess_chances:
     num = int(input(f"Enter an integer from {min} to {max}: "))
     if num > n:
-        print("Your guess is too high. Try guess something lower than", num)
-        max = num
+        if num > max:
+            print("Your guess is out of range. Try guess something lower than", max)
+        else:
+            print("Your guess is too high. Try guess something lower than", num)
+            max = num
     elif num < n:
-        print("Your guess is too low. Try guess something higher than", num)
-        min = num
+        if num < min:
+            print("Your guess is out of range. Try guess something higher than", min)
+        else:
+            print("Your guess is too low. Try guess something higher than", num)
+            min = num
     else:
         print("You guessed it!")
         print("You took", str(count), "tries to guess the number")
